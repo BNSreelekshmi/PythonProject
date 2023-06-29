@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner">
+                <div class="banner-text">
+                    <h1>TODO</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post" class="p-3 shadow">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="tname" placeholder="Enter task name"><br>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="tpriority" placeholder="Enter task priority"><br>
+               </div>
+               <div class="form-group">
+                    <input type="date" class="form-control" name="tdate" placeholder="Enter your date"><br>
+               </div>
+              <center>  <input type="submit" class="btn btn-primary"> </center>
+            </form>
+
+       </div>
+        <div class="col-md-6">
+            <h3 style="color:darkmagenta;font-family:Bernard MT;"> Tasks to be completed</h3>
+            {% for i in tasks %}
+            <div class=" shadow card">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-family:Cooper;"> {{i.tname}}</h5>
+                    <p style="font-family:Elephant;">{{i.tpriority}}</p>
+                    <p style="font-family:Elephant;">{{i.tdate}}</p>
+                    <a class="btn btn-danger" style="font-family:Elephant;" href="{% url 'delete' i.id %}">Done</a>
+                    <a class="btn btn-primary" style="font-family:Elephant;" href="{% url 'update' i.id %}">Update</a>
+
+                </div>
+            </div>
+            <br>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class=" shadow card">
+    <div class="card-body">
+        <h5 class="card-title" style="font-family:Cooper;"> {{taskobj.tname}}</h5>
+        <p style="font-family:Elephant;">{{taskobj.tpriority}}</p>
+        <p style="font-family:Elephant;">{{taskobj.tdate}}</p>
+        <a class="btn btn-danger" style="font-family:Elephant;" href="{% url 'delete' taskobj.id %}">Done</a>
+        <a class="btn btn-primary" style="font-family:Elephant;" href="{% url 'update' taskobj.id %}">Update</a>
+
+    </div>
+</div>
+{% endblock %}

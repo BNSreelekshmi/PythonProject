@@ -1,0 +1,15 @@
+.banner{
+        background-color:lightcoral;
+        width:100%;
+        height: 100px;
+        margin-bottom:50px;
+}
+.banner-text{
+top:4%;
+left:46%;
+position:absolute;
+transform:transform;
+color:navy;
+font-size:80%;
+font-family:Broadway;
+}
